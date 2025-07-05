@@ -1,25 +1,52 @@
 import { Injectable } from '@angular/core';
 
+//blueprint like for task
+export interface TaskStructure{
+  title:string;
+  done:boolean;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class TaskService {
-  taskList:string[]=[];
+  constructor() { 
+     this.loadFromLocalStorage(); 
+  }
+
+  taskList:TaskStructure[]=[];
 
 
   // get all list of task
-  getTasks():string[]{
+  getTasks():TaskStructure[]{
     return this.taskList;
   }
 
   //for adding task in list
-  addTask(taskItem:string):void{
-    this.taskList.push(taskItem)
+  addTask(title:string):void{
+    const newTask:TaskStructure = {title,done:false};
+    this.taskList.push(newTask)
+    this.saveToLocalStorage();
   }
 
   //for deleting task in the list
   deleteTask(indexOfTask:number):void{
     this.taskList.splice(indexOfTask,1)
+    this.saveToLocalStorage();
   }
-  constructor() { }
+
+  private saveToLocalStorage():void{
+    localStorage.setItem("TasksHeading",JSON.stringify(this.taskList))
+  }
+
+  private loadFromLocalStorage():void{
+    const gettingStoredData = localStorage.getItem("TasksHeading");
+    if(gettingStoredData){
+      this.taskList = JSON.parse(gettingStoredData);
+    }
+  }
 }

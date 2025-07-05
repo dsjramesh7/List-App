@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-3 mt-4">
-    <div class="flex justify-between items-center" *ngFor="let eachTask of taskService.getTasks(); let i=index">
-        <p>{{eachTask}}</p>
+    <div class="flex justify-between items-center" *ngFor="let eachTask of taskService.getTasks(); let i=index">        
+        <p>{{eachTask.title}}</p>
         <button (click)="deleteTaskfunc(i)" class="bg-red-400 px-4 py-2">delete</button>
     </div>
 </div>

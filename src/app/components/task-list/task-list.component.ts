@@ -9,12 +9,15 @@ import { TaskService } from 'src/app/services/task.service';
 export class TaskListComponent implements OnInit {
 
   constructor(public taskService:TaskService) { }
+  
 
   ngOnInit(): void {
   }
 
   // code here
-  public taskList:string[]=["Watch OnePiece","Play Cricket"]
+  public taskList:string[]=[]
+
+  
 
 
   // for removing task
