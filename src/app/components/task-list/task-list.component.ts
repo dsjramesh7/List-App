@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public taskService:TaskService) { }
 
   ngOnInit(): void {
   }
@@ -15,9 +16,10 @@ export class TaskListComponent implements OnInit {
   // code here
   public taskList:string[]=["Watch OnePiece","Play Cricket"]
 
+
   // for removing task
   public deleteTaskfunc(i:number):void{
-    this.taskList.splice(i,1)
+    this.taskService.deleteTask(i)
   }
 
 
