@@ -12,4 +12,10 @@ export class AddTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //code here
+  public task:string = "";
+  public addTaskFunc():void{
+    console.log("clci")
+  }
+
 }
