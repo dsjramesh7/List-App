@@ -1,1 +1,6 @@
-<p>task-list works!</p>
+<div class="flex flex-col gap-3 mt-4">
+    <div class="flex justify-between items-center" *ngFor="let eachTask of taskList; let i=index">
+        <p>{{eachTask}}</p>
+        <button (click)="deleteTaskfunc(i)" class="bg-red-400 px-4 py-2">delete</button>
+    </div>
+</div>

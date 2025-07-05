@@ -12,4 +12,13 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // code here
+  public taskList:string[]=["Watch OnePiece","Play Cricket"]
+
+  // for removing task
+  public deleteTaskfunc(i:number):void{
+    this.taskList.splice(i,1)
+  }
+
+
 }

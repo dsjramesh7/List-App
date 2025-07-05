@@ -15,7 +15,7 @@ export class AddTaskComponent implements OnInit {
   //code here
   public task:string = "";
   public addTaskFunc():void{
-    console.log("clci")
+    console.log("click");
   }
 
 }
